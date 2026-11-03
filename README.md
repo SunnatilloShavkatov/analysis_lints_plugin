@@ -97,6 +97,10 @@ final class GamesBloc extends Bloc<GamesEvent, GamesState> {
 bloc.add(GetGamesEvent(page: _page));
 ```
 
+Quick fix: *Make the field 'final'*. Offered only when every variable in the declaration is private,
+has an initializer and is never reassigned in the library; a field that is reassigned has to move
+out of the bloc by hand.
+
 ### `require_bloc_event_transformer`
 
 Every `on<Event>()` in a `Bloc` needs an explicit `transformer:` (`droppable()`, `restartable()`,
@@ -137,6 +141,20 @@ Column(children: items.map(ItemTile.new).toList());
 Column(children: [const Header(), ...items.map(ItemTile.new)]);
 Column(children: List.generate(items.length, (i) => ItemTile(items[i])));
 ```
+
+Quick fix: *Replace the 'for' element with '...map()'*, which turns
+`for (final item in items) ItemTile(item)` into `...items.map((item) => ItemTile(item))`. Offered
+only for a plain `for`-`in` with a declared loop variable and a single expression as its body;
+`await for`, C-style `for`, patterns and nested collection elements are left for a manual fix.
+
+## Quick fixes
+
+Two rules come with quick fixes: `avoid_mutable_bloc_fields` and `avoid_for_in_flex_children`. The
+IDE offers them on the diagnostic, for one occurrence or for every occurrence in the file.
+
+`dart fix --apply` doesn't apply them: the analyzer plugin protocol has only a per-location
+`edit.getFixes` request and no bulk-fix one, so `dart fix` reports "Nothing to fix!" for plugin
+diagnostics (checked with Dart SDK 3.13.7 and `analysis_server_plugin` 0.3.26).
 
 ## Suppressing a diagnostic
 
