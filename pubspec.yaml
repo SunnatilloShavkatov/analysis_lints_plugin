@@ -1,0 +1,25 @@
+name: analysis_lints_plugin
+version: 1.0.0
+repository: https://github.com/SunnatilloShavkatov/analysis_lints_plugin
+issue_tracker: https://github.com/SunnatilloShavkatov/analysis_lints_plugin/issues
+description: >-
+  Native Dart analyzer plugin with lint rules for Flutter and bloc code: no widget-returning helper
+  functions, no mutable bloc fields, explicit event transformers, buildWhen and more.
+topics:
+  - lints
+  - analyzer
+  - flutter
+  - bloc
+  - code-style
+
+environment:
+  sdk: ">=3.13.0 <4.0.0"
+
+dependencies:
+  analysis_server_plugin: ^0.3.26
+  analyzer: ^14.7.0
+
+dev_dependencies:
+  analyzer_testing: ^0.4.5
+  test: ^1.33.0
+  test_reflective_loader: ^0.6.0

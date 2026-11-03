@@ -1,0 +1,15 @@
+# The plugin is built from the parent folder. `dart analyze` (or `flutter analyze`) in this folder
+# reports every diagnostic marked `// LINT: <rule>` in lib/ (on the line below the comment).
+analyzer:
+  exclude:
+    - build/**
+plugins:
+  analysis_lints_plugin:
+    path: ../
+    diagnostics:
+      avoid_cross_module_imports: error
+      avoid_for_in_flex_children: error
+      avoid_mutable_bloc_fields: error
+      avoid_widget_returning_functions: error
+      require_bloc_builder_build_when: error
+      require_bloc_event_transformer: error

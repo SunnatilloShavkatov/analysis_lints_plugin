@@ -1,0 +1,12 @@
+# Appended to modules/<name>/analysis_options.yaml by scripts/with_lint_plugin.sh for one command,
+# then removed. Never commit it into a module: see README.md "Where it is enabled".
+plugins:
+  analysis_lints_plugin:
+    path: ../../packages/analysis_lints_plugin
+    diagnostics:
+      avoid_cross_module_imports: error
+      avoid_for_in_flex_children: error
+      avoid_mutable_bloc_fields: error
+      avoid_widget_returning_functions: error
+      require_bloc_builder_build_when: error
+      require_bloc_event_transformer: error

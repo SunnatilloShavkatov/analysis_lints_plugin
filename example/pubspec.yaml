@@ -1,0 +1,13 @@
+name: analysis_lints_plugin_example
+description: "Shows every analysis_lints_plugin rule: one BAD and one GOOD case per rule."
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: ">=3.13.0 <4.0.0"
+
+dependencies:
+  bloc: ^9.2.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
